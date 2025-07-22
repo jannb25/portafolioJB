@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Landing Page Profesional - Docente Universitaria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset y variables CSS */
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colores principales */  
+             /* Core colors - Professional theme */
+            --primary: hsl(221, 83%, 53%);
+            --primary-foreground: hsl(0, 0%, 98%);
+            --primary-glow: hsl(221, 83%, 70%);
+            
+            --background: hsl(0, 0%, 100%);
+            --foreground: hsl(224, 71%, 4%);
+            
+            --card: hsl(0, 0%, 100%);
+            --card-foreground: hsl(224, 71%, 4%);
+            
+            --secondary: hsl(210, 40%, 96%);
+            --secondary-foreground: hsl(224, 71%, 4%);
+            
+            --muted: hsl(220, 14%, 96%);
+            --muted-foreground: hsl(220, 8%, 46%);
+            
+            --accent: hsl(220, 14%, 96%);
+            --accent-foreground: hsl(224, 71%, 4%);
+            
+            --border: hsl(220, 13%, 91%);
+            --ring: hsl(221, 83%, 53%);
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+            --gradient-hero: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(221, 83%, 70%) 50%, hsl(266, 75%, 70%) 100%);
+            --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(220, 14%, 98%) 100%);
+            
+            /* Shadows */
+            --shadow-soft: 0 2px 10px -3px hsla(221, 83%, 53%, 0.1);
+            --shadow-medium: 0 4px 20px -8px hsla(221, 83%, 53%, 0.15);
+            --shadow-large: 0 20px 40px -12px hsla(221, 83%, 53%, 0.2);
+            --shadow-glow: 0 0 40px hsla(221, 83%, 70%, 0.3);
+            
+            /* Spacing */
+            --container-max-width: 1200px;
+            --section-padding: 5rem 0;
+            --radius: 0.75rem;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Animaciones */
+            --transition-fast: all 0.15s ease;
+            --transition-normal: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+        }
+
+        /* Utilidades */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+            scroll-margin-top: 90px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Navegación */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: var(--transition-normal);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-title {
+            font-size: 1.3rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: var(--transition-fast);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g"><stop offset="20%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="50%" stop-color="%23ffffff" stop-opacity="0.05"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><rect width="1000" height="1000" fill="url(%23g)"/></svg>') center/cover;
+            opacity: 0.1;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .greeting-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-name {
+            display: block;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #e2e8f0;
+            margin-top: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* About Section */
+        .about {
+        background: var(--surface);
+        padding: 4rem 0;
+        }
+
+        /* Contenido general: texto arriba, cards abajo en 2 columnas */
+        .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: 2rem;
+        }
+
+        /* Texto introductorio */
+        .about-text h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        }
+
+        .about-text p {
+        color: var(--text-secondary);
+        margin-bottom: 1.2rem;
+        line-height: 1.7;
+        }
+
+        /* Grid de 4 cards por fila */
+        .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        }
+
+        /* Card simplificada */
+        .value-card {
+        background: var(--background);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-normal);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        }
+
+        .value-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        }
+
+        /* Encabezado compacto: ícono + título */
+        .value-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        }
+
+        /* Ícono azul sobre fondo claro, tamaño más balanceado */
+        .value-icon {
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--primary);
+        font-size: 1.4rem;
+        padding: 0.5rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+        /* Título alineado al lado del ícono */
+        .value-card h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0;
+        }
+
+        /* Descripción debajo del encabezado */
+        .value-card p {
+        color: var(--text-secondary);
+        line-height: 1.5;
+        font-size: 0.85rem;
+        }
+
+
+        /* Skills Section */
+        .skills-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .skill-level {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+
+        /* Experience Section */
+
+        /* Sección de experiencia */
+        .experience {
+        background: var(--surface);
+        padding: 4rem 0;
+        }
+
+        /* Contenedor de todas las cards */
+        .card-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+        }
+
+        /* Card individual */
+        .card {
+        background: var(--background);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+        transform: translateY(-5px);
+        }
+
+        /* Contenido interno dividido en dos columnas */
+        .card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+        .card-content {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        }
+
+        /* Sección izquierda */
+        .card-left {
+        flex: 1;
+        min-width: 250px;
+        }
+
+        .card-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        }
+
+        .card-title .icon {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+        }
+
+        .card-university,
+        .card-date,
+        .card-location {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        }
+
+        .card-university::before {
+        content: "🏫";
+        margin-right: 0.5rem;
+        }
+
+        .card-date .icon,
+        .card-location .icon {
+        margin-right: 0.5rem;
+        }
+
+        /* Sección derecha */
+        .card-right {
+        flex: 2;
+        }
+
+        .card-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        }
+
+        /* Subsecciones: materias y logros */
+        .card-subsection {
+        margin-bottom: 1.5rem;
+        }
+
+        .card-subsection h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        }
+
+        .card-subsection h4::before {
+        content: "•";
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+        }
+
+        .card-subsection ul {
+        padding-left: 1.2rem;
+        margin-bottom: 0;
+        }
+
+        .card-subsection li {
+        margin-bottom: 0.3rem;
+        color: var(--text-secondary);
+        list-style-type: disc;
+        }
+
+        /* Etiquetas de habilidades (si se usan) */
+        .card-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        }
+
+        .skill-tag {
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--primary);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        }
+
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--background);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: var(--transition-normal);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--surface);
+            color: var(--text-secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-fast);
+        }
+
+        .project-link:hover {
+            color: var(--primary-dark);
+        }
+
+        /* AI Chat Section */
+        .ai-chat {
+            background: var(--surface);
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--background);
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .chat-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .chat-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chat-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .chat-messages {
+            height: 400px;
+            padding: 1.5rem;
+            overflow-y: auto;
+            background: var(--surface);
+        }
+
+        .message {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .user-message .message-avatar {
+            background: var(--primary);
+            color: white;
+        }
+
+        .ai-message .message-avatar {
+            background: var(--accent);
+            color: white;
+        }
+
+        .message-content {
+            background: var(--background);
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .user-message .message-content {
+            background: var(--primary);
+            color: white;
+            margin-left: auto;
+            max-width: 80%;
+        }
+
+        .chat-suggestions {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            background: var(--background);
+        }
+
+        .suggestions-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .suggestion-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-align: left;
+        }
+
+        .suggestion-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .chat-input-container {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+            background: var(--background);
+        }
+
+        .chat-input-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition-fast);
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-send-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition-normal);
+        }
+
+        .chat-send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: var(--transition-normal);
+        }
+
+        .contact-method:hover {
+            background: var(--background);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .contact-details h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .contact-form {
+            background: var(--background);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition-fast);
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e1;
+            line-height: 1.6;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-normal);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition-normal);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 2rem;
+            }
+
+            .timeline-item {
+                width: calc(100% - 4rem);
+                margin-left: 4rem;
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: 4rem;
+            }
+
+            .timeline-item::before {
+                left: -2.5rem !important;
+            }
+
+            .chat-input-group {
+                flex-direction: column;
+            }
+
+            .suggestions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .timeline {
+                margin-left: 1rem;
+            }
+
+            .timeline-item {
+                margin-left: 2rem;
+                width: calc(100% - 2rem);
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">JB</span>
+                <span class="nav-title">Jannelly Bello</span>
+            </div>
+            
+             <div class="nav-menu" id="navMenu">
+                <a class="nav-link" onclick="scrollToSection('inicio')">Inicio</a>
+                <a class="nav-link" onclick="scrollToSection('about')">Sobre Mí</a>
+                <a class="nav-link" onclick="scrollToSection('skills')">Habilidades</a>
+                <a class="nav-link" onclick="scrollToSection('experience')">Experiencia</a>
+                <a class="nav-link" onclick="scrollToSection('portfolio')">Portafolio</a>
+                <a class="nav-link" onclick="scrollToSection('ai-chat')">AI Chat</a>
+                <a class="nav-link" onclick="scrollToSection('contact')">Contacto</a>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                       <span></span>
+                          <span></span>
+                        <span class="greeting-badge">👋 ¡Hola! Soy</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="hero-name">Jannelly Bello</span>
+                        <span class="hero-subtitle">Ingeniero en informática - Docente Universitario.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Más de una década transformando mentes curiosas en expertos en tecnología: mi pasión es guiar la próxima generación de
+                        desarrolladores a través de los diversos paradigmas de la programación y el 
+                        ciclo completo del desarrollo de software.
+                    </p>
+
+                                      
+                    <div class="hero-buttons">
+
+                     <button class="btn btn-primary" onclick="scrollToChat()">
+                            💬 Chatear con mi Agente IA
+                        </button> 
+
+                        <a href="https://drive.google.com/file/d/1BOsL0pNtIn9-mFSpPhOhNRMeNK5FXceY/view?usp=sharing/CV.pdf" download>
+                            <button class="btn btn-secondary">
+                                📄 Descargar CV
+                            </button>
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Años de Experiencia Docente</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1400+</span>
+                            <span class="stat-label">Estudiantes Formados</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">60+</span>
+                            <span class="stat-label">Cursos Dictados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator" onclick="scrollToAbout()">
+            <div class="scroll-arrow">↓</div>
+            <span>Scroll para conocer más</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+    <div class="container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <p class="section-subtitle">Más que un docente, mi Misión es Conectar la Enseñanza con el Código para Transformar Vidas.</p>
+
+        <div class="about-content">
+        <div class="about-text">
+            <h3>Mi Pasión por la Enseñanza</h3>
+            <p>
+            Soy ingeniero en informática apasionada de la tecnología y la educación, con más de una 
+            década de experiencia como docente universitaria en el dinámico campo de la programación
+            y el desarrollo de software. Mi misión va más allá de impartir conocimientos, busco 
+            inspirar y empoderar a la próxima generación de profesionales, dotándolos de las habilidades
+            y la mentalidad necesarias para innovar y resolver los desafíos tecnológicos más complejos.  
+            Creo firmemente que la programación es una forma de arte que combina lógica, creatividad y resolución de problemas.
+            </p>
+            <p>
+             Mi enfoque pedagógico se basa en la construcción gradual del conocimiento, desde los fundamentos 
+            teóricos hasta la aplicación práctica en proyectos reales que preparan a los estudiantes para 
+            los desafíos del mundo profesional.
+            </p>
+            <p>
+            </p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+            <div class="value-header">
+                <div class="value-icon">🎯</div>
+                <h4>Enfoque Práctico</h4>
+            </div>
+                <p>Creo en el aprendizaje a través de la práctica, utilizando proyectos reales y casos de estudio relevantes.</p>
+            </div>
+
+            <div class="value-card">
+            <div class="value-header">
+                <div class="value-icon">💡</div>
+                <h4>Innovación Educativa</h4>
+            </div>
+                <p>Integro tecnologías emergentes y metodologías modernas para hacer el aprendizaje más efectivo.</p>
+            </div>
+
+            <div class="value-card">
+            <div class="value-header">
+                <div class="value-icon">🤝</div>
+                <h4>Mentoría Personalizada</h4>
+            </div>
+            <p>Cada estudiante es único, por eso adapto mi enseñanza a diferentes estilos de aprendizaje.</p>
+            </div>
+
+            <div class="value-card">
+            <div class="value-header">
+                <div class="value-icon">🚀</div>
+                <h4>Preparación Profesional</h4>
+            </div>
+                <p>Preparo a mis estudiantes para el mundo real con habilidades técnicas y blandas esenciales.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <p class="section-subtitle">
+                Dominio en múltiples paradigmas de programación y tecnologías modernas
+            </p>
+            
+            <div class="skills-content">
+                <div class="skill-category">
+                    <h3>💻 Paradigmas de Programación</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Programación Orientada a Objetos</span>
+                            <span class="skill-level"> Experto</span>
+                        </div>
+
+                       
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Programación Funcional</span>
+                            <span class="skill-level"> Avanzado</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Programación Lógica</span>
+                            <span class="skill-level"> Avanzado</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Programación Orientada a Aspectos</span>
+                            <span class="skill-level"> Intermedio</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 78%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🔧 Lenguajes de Programación</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-level"> Experto</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                      <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">C++</span>
+                            <span class="skill-level"> Experto</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                       <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-level"> Avanzado</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level"> Avanzado</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:80%"></div>
+                        </div>
+                    </div>                 
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🛠️ Herramientas y Metodologías</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git & GitHub</span>
+                            <span class="skill-level"> Intermedo </span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Jira & Confluence</span>
+                            <span class="skill-level"> Intermedio</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Metodologías Ágiles</span>
+                            <span class="skill-level"> Avanzado</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Figma & Diseño UX</span>
+                            <span class="skill-level">Intermedio</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🤖 Inteligencia Artificial</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">NotebookLM</span>
+                            <span class="skill-level"> Avanzado</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">ChatGPT & IA Generativa</span>
+                            <span class="skill-level">Avanzado</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">TensorFlow</span>
+                            <span class="skill-level">Básico</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+    <div class="container">
+        <h2 class="section-title">Experiencia Académica</h2>
+        <p class="section-subtitle">
+        Mi trayectoria en la docencia universitaria y formación de desarrolladores
+        </p>
+
+        <div class="card-grid">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-content">
+            <div class="card-left">
+                <h3 class="card-university">Universidad Nacional Experimental de Guayana</h3>
+                <div class="card-date"><span class="icon">📅</span> 2013 - Presente</div>
+                <div class="card-location"><span class="icon">📍</span> Puerto ordaz, Venezuela</div>
+            </div>
+            <div class="card-right">
+                <p class="card-description">
+                </p>
+                <div class="card-subsection">
+                <h4>📘 Materias Impartidas</h4>
+                <ul>
+                    <li>Técnicas de Programación III. IV Semestre.</li>
+                    <li>Técnicas de Programación II. III Semestre.</li>
+                    <li>Técnicas de Programación I. II Semestre.</li>
+                </ul>
+                </div>
+                <div class="card-subsection">
+                <h4>🏆 Logros Destacados</h4>
+                <ul>
+                    <li>Coordinadora del comité de Trabajos de Grado.</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-content">
+            <div class="card-left">
+                <h3 class="card-university">Universidad Católica Andrés Bello</h3>
+                <div class="card-date"><span class="icon">📅</span> 2011 - Presente</div>
+                <div class="card-location"><span class="icon">📍</span> Puerto Ordaz, Venezuela</div>
+            </div>
+            <div class="card-right">
+                <p class="card-description">
+
+                </p>
+                <div class="card-subsection">
+                <h4>📘 Materias Impartidas</h4>
+                <ul>
+                    <li>Tópicos Especiales de Programación.</li>    
+                    <li>Algoritmos y Estructuras.</li>
+                    <li>Algoritmos y Programación II.</li>
+                    <li>Desarrollo de Software.</li>
+                    <li>Algoritmos y Programación I.</li>
+                    <li>Ingeniería de Software.</li>
+                    <li>Introducción a la Informática.</li>
+                    <li>Programación Orientada a Objetos.</li>
+                </ul>
+                </div>
+                <div class="card-subsection">
+                <h4>🏆 Logros Destacados</h4>
+                <ul>
+                    <li>Jefe del departamento de lógica y programación</li>
+                    <li>Organización de la competencia de Robótica</li>
+                    <li>Parcticipación en el proyecto FÓRMULAS INNOVADORAS PARA LA INVESTIGACIÓN</li>
+                    <li>Parcticipación en el Proyecto COIL</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">Portafolio de Proyectos</h2>
+            <p class="section-subtitle">
+                Descubre algunos de mis proyectos más destacados en educación y tecnología.
+            </p>
+            
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-image">🤖</div>
+                    <div class="project-content">
+                        <h3 class="project-title">EdgyLearn: Plataforma de Gestión de Aprendizaje Personalizado</h3>
+                        <p class="project-description" style="text-align: justify;">
+                          Solución digital que se enfoca en personalizar contenidos y trayectorias formativas según las necesidades individuales. 
+                          Mediante inteligencia artificial y análisis de datos, se crean experiencias de aprendizaje únicas que mejoran la retención 
+                          del conocimiento y aportan valor estratégico a instituciones educativas y organizaciones que modernizan su formación. 
+                        </p>
+                        <p class="project-role" style="color: #000000; font-weight: normal; font-size: 0.9rem;">
+                            <strong>Rol:</strong> Proyect Manager – Supervisión, organización y alineación estratégica del desarrollo educativo.</p>
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Confluence</span>
+                            <span class="tech-tag">Jira API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">📚</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cuerpos y mentes en equilibrio.</h3>
+                        <p class="project-description" style="text-align: justify;">
+                            Experiencia de Aprendizaje Internacional Colaborativo en Línea (COIL) entre 
+                            la Escuela de Fisioterapia – PUCE Ecuador y las Escuelas de Ingeniería Informática, Psicología 
+                            y Comunicación Social – UCAB Venezuela.
+                            Aplicación web y móvil enfocada en el área de salud 
+                            mental que busca evaluar el estrés académico y los síntomas de ansiedad y depresión en estudiantes 
+                            universitarios y proporcionar recomendaciones de ejercicios de fisioterapia para aliviar dichos síntomas.
+                        </p>
+                        <p class="project-role" style="color: #000000; font-weight: normal; font-size: 0.9rem;">
+                            <strong>Rol:</strong> Product Owner – Coordinación estratégica, definición de requerimientos y validación funcional del producto.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">GitHub API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Proyecto de sistematización de la gestión de sostenibilidad de la UCAB-Guayana.</h3>
+                        <p class="project-description" style="text-align: justify;">
+                         Proyecto de sistematización de la gestión de sostenibilidad de la UCAB, para la recolección
+                         de información y evidencias de las actividades orientadas a la sostenibilidad, 
+                         realizadas por las unidades/departamentos de la universidad
+                        </p>
+                         <p class="project-role" style="color: #000000; font-weight: normal; font-size: 0.9rem;">
+                            <strong>Rol:</strong> Product Owner – Coordinación estratégica, definición de requerimientos y validación funcional del producto.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AngularJS</span>
+                            <span class="tech-tag">NestJS</span>
+                            <span class="tech-tag">Git - Github</span>
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Section -->
+    <section id="ai-chat" class="section ai-chat">
+        <div class="container">
+            <h2 class="section-title">Chatea con mi Agente IA</h2>
+            <p class="section-subtitle">
+                Pregúntame sobre mi experiencia, metodologías de enseñanza, proyectos y más
+            </p>
+            
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3>🤖 Asistente Virtual Profesional</h3>
+                    <p>Estoy aquí para responder tus preguntas sobre mi experiencia y conocimientos</p>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            ¡Hola! Soy el agente IA de esta docente universitaria especializada en paradigmas de programación y desarrollo de software. 
+                            Puedo ayudarte con información sobre su metodología de enseñanza, experiencia, proyectos de investigación, 
+                            y mucho más. ¿En qué te puedo ayudar hoy?
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-suggestions">
+                    <div class="suggestions-title">💡 Preguntas sugeridas:</div>
+                    <div class="suggestions-grid">
+                        <button class="suggestion-btn" onclick="sendSuggestion('¿Cuál es tu metodología de enseñanza?')">
+                            ¿Cuál es tu metodología de enseñanza?
+                        </button>
+                        <button class="suggestion-btn" onclick="sendSuggestion('Cuéntame sobre tus proyectos de investigación')">
+                            Cuéntame sobre tus proyectos de investigación
+                        </button>
+                        <button class="suggestion-btn" onclick="sendSuggestion('¿Qué paradigmas de programación enseñas?')">
+                            ¿Qué paradigmas de programación enseñas?
+                        </button>
+                        <button class="suggestion-btn" onclick="sendSuggestion('¿Cómo puedo contactarte para colaborar?')">
+                            ¿Cómo puedo contactarte para colaborar?
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="chat-input-group">
+                        <input 
+                            type="text" 
+                            class="chat-input" 
+                            id="chatInput" 
+                            placeholder="Escribe tu pregunta aquí..."
+                            onkeypress="handleKeyPress(event)"
+                        >
+                        <button class="chat-send-btn" onclick="sendMessage()">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">
+                ¿Interesado en colaborar o tienes alguna consulta? ¡Me encantaría escucharte!
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Conectemos</h3>
+                    <p>
+                        Estoy siempre abierta a nuevas oportunidades de colaboración, proyectos de investigación 
+                        y consultoría académica. No dudes en contactarme para discutir cómo podemos 
+                        trabajar juntos.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>janneb828@gmail.com</p>
+                                </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">🏢</div>
+                            <div class="contact-details">
+                                <h4>Oficina</h4>
+                                <p>Escuela de Informática, UCAB</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-details">
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes a Viernes: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p>
+                                    <a href="https://www.linkedin.com/in/jannelly-bello-bb580715b" target="_blank">
+                                        linkedin.com/in/jannelly-bello-bb580715b
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre completo</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Asunto</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Mensaje</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sobre Este Portafolio</h4>
+                    <p>
+                        Landing page profesional desarrollada como proyecto final de la maestría en 
+                        gestión de proyectos, integrando tecnologías modernas y un agente IA conversacional.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <div class="footer-links">
+                        <a class="nav-link" onclick="scrollToSection('about')">Sobre Mí</a>
+                        <a class="nav-link" onclick="scrollToSection('skills')">Habilidades</a>
+                        <a class="nav-link" onclick="scrollToSection('portfolio')">Portafolio</a>
+                        <a class="nav-link" onclick="scrollToSection('contact')">Contacto</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Áreas de Expertise</h4>
+                    <div class="footer-links">
+                        <a class="nav-link" onclick="scrollToSection('skills')">Paradigmas de Programación</a>
+                        <a class="nav-link" onclick="scrollToSection('experience')">Docencia Universitaria</a>
+                        <a class="nav-link" onclick="scrollToSection('portfolio')">Gestión de Proyectos</a>
+                        <a class="nav-link" onclick="scrollToSection('ai-chat')">Inteligencia Artificial</a>                      
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sígueme</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🐙</a>
+                        <a href="#" class="social-link">🎓</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mi Portafolio Profesional. Desarrollado como proyecto de maestría.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Toggle mobile menu
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+
+            // Highlight active navigation link on scroll
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Animate skill bars when they come into view
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const skillBars = entry.target.querySelectorAll('.skill-progress');
+                        skillBars.forEach(bar => {
+                            const width = bar.style.width;
+                            bar.style.width = '0%';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 200);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+        });
+
+        // Smooth scrolling functions
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToAbout() {
+            document.getElementById('about').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToChat() {
+            document.getElementById('ai-chat').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // AI Chat functionality
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+
+        // Simulated AI responses
+        const aiResponses = {
+            'metodología': `Mi metodología de enseñanza se basa en el aprendizaje activo y centrado en el estudiante. Utilizo:
+
+            • **Aprendizaje basado en proyectos**: Los estudiantes trabajan en proyectos reales que aplican múltiples paradigmas de programación.
+
+            • **Evaluación formativa continua**: Retroalimentación constante para guiar el proceso de aprendizaje.
+
+            • **Programación en parejas**: Fomento la colaboración y el intercambio de conocimientos.
+
+            • **Gamificación**: Uso elementos de juego para motivar y hacer más atractivo el aprendizaje.`,
+
+                        'investigación': `Mis líneas de investigación principales incluyen:
+
+            • **Pedagogía en programación**: Desarrollo de metodologías innovadoras para la enseñanza de paradigmas de programación.
+
+            • **Análisis de rendimiento académico**: Uso de machine learning para predecir y mejorar el desempeño estudiantil.
+
+            • **Integración de IA en educación**: Desarrollo de herramientas inteligentes para personalizar el aprendizaje.
+
+            • **Evaluación automática de código**: Sistemas para feedback inmediato en ejercicios de programación.`,
+
+                        'paradigmas': `Enseño varios paradigmas de programación fundamentales:
+
+            • **Programación Orientada a Objetos (OOP)**: Java, C++, Python - Enfoque en encapsulación, herencia y polimorfismo.
+
+            • **Programación Funcional**: Haskell, JavaScript, Python - Funciones puras, inmutabilidad, recursión.
+
+            • **Programación Lógica**: Prolog - Programación declarativa, backtracking, unificación.
+
+            • **Programación Imperativa**: C, Python - Control de flujo, mutabilidad de estado.
+
+            • **Paradigmas emergentes**: Programación reactiva, programación concurrente.`,
+
+                        'experiencia': `Tengo más de 10 años de experiencia en docencia universitaria:
+
+            • **2020-Presente**: Profesora Titular - Desarrollo de nuevos currículos y metodologías.
+
+            • **2015-2020**: Profesora Asociada - Especialización en paradigmas de programación.
+
+            • **2012-2015**: Profesora Asistente - Inicio en la carrera docente.
+
+            He formado a más de 500 estudiantes y dirigido 25+ tesis de grado en áreas relacionadas con programación y desarrollo de software.`,
+
+                        'proyectos': `Mis proyectos más destacados incluyen:
+
+            • **Plataforma Educativa Interactiva**: Sistema web para enseñanza de programación con evaluación automática.
+
+            • **Mi Estrategia de Control de Proyectos con IA**: Proyecto de maestría que integra IA en gestión académica.
+
+            • **Análisis de Rendimiento Académico**: Herramienta predictiva para identificar estudiantes en riesgo.
+
+            Todos mis proyectos están disponibles en mi portafolio con documentación completa y código fuente.`,
+
+                        'tecnologías': `Las tecnologías que domino y enseño incluyen:
+
+            • **Lenguajes**: Java, Python, JavaScript, C++, Haskell, Prolog
+            • **Frameworks**: Node.js, Spring, Django
+            • **Herramientas**: Git, Docker, Kubernetes, Jenkins
+            • **Bases de datos**: MySQL, MongoDB, PostgreSQL
+            • **Metodologías**: Agile, Scrum, DevOps
+            • **Plataformas educativas**: Moodle, GitHub Classroom, Jupyter Notebooks`,
+
+                        'contacto': `Puedes contactarme a través de varios medios:
+
+            • **Email**: tu.email@universidad.edu
+            • **Oficina**: Edificio de Ingeniería, Oficina 301
+            • **Horario**: Lunes a Viernes, 9:00 AM - 5:00 PM
+            • **LinkedIn**: [Tu perfil de LinkedIn]
+            • **ResearchGate**: [Tu perfil académico]
+
+            Estoy siempre disponible para:
+            - Colaboraciones en investigación
+            - Consultoría académica
+            - Conferencias y charlas
+            - Dirección de tesis`,
+
+                        'default': `Como docente universitaria especializada en paradigmas de programación, puedo ayudarte con información sobre:
+
+            • Mi metodología de enseñanza
+            • Proyectos de investigación
+            • Paradigmas de programación que enseño
+            • Mi experiencia académica
+            • Tecnologías y herramientas que domino
+            • Oportunidades de colaboración
+
+            ¿Sobre qué te gustaría saber más específicamente?`
+        };
+
+        function getAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('metodología') || lowerMessage.includes('enseñanza') || lowerMessage.includes('pedagogía')) {
+                return aiResponses.metodología;
+            }
+            if (lowerMessage.includes('investigación') || lowerMessage.includes('research')) {
+                return aiResponses.investigación;
+            }
+            if (lowerMessage.includes('paradigma') || lowerMessage.includes('programación') || lowerMessage.includes('lenguajes')) {
+                return aiResponses.paradigmas;
+            }
+            if (lowerMessage.includes('experiencia') || lowerMessage.includes('trayectoria') || lowerMessage.includes('carrera')) {
+                return aiResponses.experiencia;
+            }
+            if (lowerMessage.includes('proyecto') || lowerMessage.includes('portafolio')) {
+                return aiResponses.proyectos;
+            }
+            if (lowerMessage.includes('tecnología') || lowerMessage.includes('herramienta') || lowerMessage.includes('framework')) {
+                return aiResponses.tecnologías;
+            }
+            if (lowerMessage.includes('contacto') || lowerMessage.includes('email') || lowerMessage.includes('colabora')) {
+                return aiResponses.contacto;
+            }
+            
+            return aiResponses.default;
+        }
+
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${isUser ? '👤' : '🤖'}</div>
+                <div class="message-content">${content}</div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, true);
+            chatInput.value = '';
+            
+            // Add loading indicator
+            setTimeout(() => {
+                const response = getAIResponse(message);
+                addMessage(response);
+            }, 1000);
+        }
+
+        function sendSuggestion(suggestion) {
+            chatInput.value = suggestion;
+            sendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            alert('¡Gracias por tu mensaje! Te responderé pronto.');
+            this.reset();
+        });
+
+        // Add animation classes when elements come into view
+        const animateOnScroll = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.value-card, .project-card, .skill-category, .timeline-item');
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                animateOnScroll.observe(el);
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            const hero = document.querySelector('.hero');
+            
+            if (hero) {
+                hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+            }
+        });
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', function() {
+            const heroName = document.querySelector('.hero-name');
+            if (heroName) {
+                const originalText = heroName.textContent;
+                typeWriter(heroName, originalText, 100);
+            }
+        });
+
+        function scrollToSection(id) {
+        const target = document.getElementById(id);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+}
+    </script>
+</body>
+</html>
